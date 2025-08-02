@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менструальный Календарь</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌙</text></svg>">
+</head>
+<body>
+    <header>
+        <h1>Менструальный Календарь</h1>
+        <div class="auth-container">
+            <button id="loginBtn">Войти</button>
+            <button id="logoutBtn" style="display: none;">Выйти</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="calendar-section">
+            <h2>Календарь</h2>
+            <div id="calendar"></div>
+            <button id="addCycleBtn">Добавить цикл</button>
+        </section>
+
+        <section id="symptoms-section">
+            <h2>Симптомы</h2>
+            <form id="symptomForm">
+                <input type="date" id="symptomDate" required>
+                <select id="symptomType">
+                    <option value="боль">Боль</option>
+                    <option value="настроение">Настроение</option>
+                    <option value="температура">Температура</option>
+                </select>
+                <input type="number" id="symptomIntensity" min="1" max="10" placeholder="Интенсивность (1-10)">
+                <button type="submit">Добавить симптом</button>
+            </form>
+            <div id="symptomsList"></div>
+        </section>
+
+        <section id="stats-section">
+            <h2>Статистика</h2>
+            <canvas id="cycleChart" width="400" height="200"></canvas>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
